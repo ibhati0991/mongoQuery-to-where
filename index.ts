@@ -54,9 +54,24 @@ function mongoToSqlWhere(mongoQuery): string {
 
 // Write TypeScript code!
 const condition = {
-  timestamp: {
-    $gte: 1412204098,
-    $lte: 1412204099,
+  $or: [
+    {
+      date_occurred: {
+        $gte: 10,
+        $lte: 20,
+      },
+    },
+    {
+      date_occurred: {
+        $gte: 30,
+        $lte: 40,
+      },
+    },
+    { name: 'tarun' },
+  ],
+  age: {
+    $gte: 15,
+    $lte: 18,
   },
 };
 const appDiv: HTMLElement = document.getElementById('app');
